@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout title="About — ECONMADE">
+  <Nav />
+  <main>
+    <section class="page-header">
+      <h1>About</h1>
+    </section>
+
+    <div class="about-content">
+      <p>
+        <strong>ECONMADE</strong> — анимационный канал про экономику и финансы.
+      </p>
+      <p>
+        Мы делаем сложные экономические темы понятными через визуализации,
+        топы и motion-графику. ВВП, инфляция, мировые рейтинги — всё это
+        в коротких ярких анимациях.
+      </p>
+      <p>
+        Наша цель — чтобы каждый мог разобраться в экономике,
+        не читая учебники.
+      </p>
+
+      <h2>Контакты</h2>
+      <div class="contact-links">
+        <a href="mailto:econmade@gmail.com">econmade@gmail.com</a>
+      </div>
+
+      <h2>Соцсети</h2>
+      <div class="contact-links">
+        <a href="https://youtube.com/@econmade" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://t.me/econmade" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://tiktok.com/@econmade" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://instagram.com/econmade" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/econmade" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 80px 0 48px;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 0.08em;
+  }
+
+  .about-content {
+    padding-bottom: 80px;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  .about-content strong {
+    color: #ddd;
+  }
+
+  .about-content h2 {
+    font-size: 0.85rem;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .contact-links a {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 0.05em;
+    transition: color 0.15s;
+  }
+
+  .contact-links a:hover {
+    color: #fff;
+  }
+</style>

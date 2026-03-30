@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Layout title="Блог — ECONMADE">
+  <Nav />
+  <main>
+    <section class="page-header">
+      <h1>Blog</h1>
+      <p class="tagline">Статьи про экономику и финансы</p>
+    </section>
+
+    <div class="articles">
+      {posts.map((post) => (
+        <a href={`/blog/${post.id}/`} class="article">
+          <div>
+            <span class="article-title">{post.data.title}</span>
+            <p class="article-desc">{post.data.description}</p>
+          </div>
+          <span class="article-date">{post.data.date}</span>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 80px 0 48px;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+  }
+
+  .article {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid #111;
+    gap: 24px;
+  }
+
+  .article-desc {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .article-title {
+    font-size: 1rem;
+    color: #ddd;
+    transition: color 0.15s;
+  }
+
+  .article:hover .article-title {
+    color: #fff;
+  }
+
+  .article-date {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.6rem;
+    color: #444;
+    white-space: nowrap;
+  }
+</style>

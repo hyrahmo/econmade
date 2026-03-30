@@ -9,7 +9,10 @@
       "Bash(node scripts/generate-favicons.mjs)",
       "Bash(npm run:*)",
       "Bash(gh api:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "WebFetch(domain:bossto.blog)",
+      "Bash(curl -sL https://bossto.blog/ru/)",
+      "Bash(curl -sL \"https://bossto.blog/favicon.svg\")"
     ]
   }
 }

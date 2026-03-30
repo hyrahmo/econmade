@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
 
 <Layout title="ECONMADE">
+  <Nav />
   <main>
     <section class="hero">
       <h1>ECONMADE</h1>
@@ -22,25 +29,16 @@ import Layout from '../layouts/Layout.astro';
     <hr class="divider" />
 
     <section class="section">
-      <h2>Blog</h2>
+      <h2>Latest</h2>
       <div class="articles">
-        <a href="#" class="article">
-          <span class="article-title">Почему одни страны богатые, а другие бедные</span>
-          <span class="article-date">2026</span>
-        </a>
-        <a href="#" class="article">
-          <span class="article-title">ТОП-10 крупнейших экономик мира</span>
-          <span class="article-date">2026</span>
-        </a>
-        <a href="#" class="article">
-          <span class="article-title">Как работает инфляция — простым языком</span>
-          <span class="article-date">2026</span>
-        </a>
-        <a href="#" class="article">
-          <span class="article-title">Что будет с мировой экономикой в ближайшие 10 лет</span>
-          <span class="article-date">2026</span>
-        </a>
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="article">
+            <span class="article-title">{post.data.title}</span>
+            <span class="article-date">{post.data.date}</span>
+          </a>
+        ))}
       </div>
+      <a href="/blog/" class="view-all">Все статьи &rarr;</a>
     </section>
 
     <hr class="divider" />
@@ -59,3 +57,20 @@ import Layout from '../layouts/Layout.astro';
     </footer>
   </main>
 </Layout>
+
+<style>
+  .view-all {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+
+  .view-all:hover {
+    color: #fff;
+  }
+</style>

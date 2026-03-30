@@ -1,0 +1,59 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<nav>
+  <a href="/" class="logo pixel">ECONMADE</a>
+  <div class="nav-links">
+    <a href="/blog/" class:list={[{ active: pathname.startsWith('/blog') }]}>Blog</a>
+    <a href="/about/" class:list={[{ active: pathname === '/about/' }]}>About</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .logo {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.08em;
+    transition: color 0.15s;
+  }
+
+  .logo:hover {
+    color: #aaa;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #fff;
+  }
+</style>
