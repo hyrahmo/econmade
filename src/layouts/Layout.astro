@@ -17,7 +17,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0D0D0D" />
+    <meta name="theme-color" content="#000000" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content="Анимационный канал про экономику и финансы" />
     <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500&display=swap');
 
   * {
     margin: 0;
@@ -42,150 +42,167 @@ const { title } = Astro.props;
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #0D0D0D;
-    color: #E0E0E0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #000;
+    color: #ccc;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
 
+  h1, h2, h3, .pixel {
+    font-family: 'Silkscreen', monospace;
+  }
+
   main {
-    max-width: 900px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #aaa;
   }
 
   /* Hero */
   .hero {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 20px;
-  }
-
-  .logo-mark .icon {
-    width: 80px;
-    height: 80px;
+    gap: 24px;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 10vw, 5rem);
-    font-weight: 800;
-    letter-spacing: 0.05em;
+    font-size: clamp(3rem, 12vw, 6rem);
     color: #fff;
+    letter-spacing: 0.08em;
     line-height: 1;
   }
 
-  .hero h1 .accent {
-    color: #00E676;
-  }
-
   .tagline {
-    font-size: 1.15rem;
-    color: #999;
-    max-width: 480px;
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 400px;
+    line-height: 1.6;
   }
 
-  .links {
+  /* Links row */
+  .socials {
     display: flex;
-    gap: 12px;
-    margin-top: 12px;
+    gap: 24px;
+    margin-top: 8px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: 99px;
+  .socials a {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.75rem;
+    color: #555;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+
+  .socials a:hover {
+    color: #fff;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 64px 0;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 64px;
+  }
+
+  .section h2 {
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  /* Articles list */
+  .articles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .article {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid #111;
+    gap: 16px;
+  }
+
+  .article-title {
     font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    background: #00E676;
-    color: #0D0D0D;
+    color: #ddd;
+    transition: color 0.15s;
   }
 
-  .btn:hover {
-    background: #00C853;
-    transform: translateY(-2px);
+  .article:hover .article-title {
+    color: #fff;
   }
 
-  .btn-outline {
-    background: transparent;
-    color: #E0E0E0;
-    border: 1.5px solid #333;
-  }
-
-  .btn-outline:hover {
-    border-color: #00E676;
-    color: #00E676;
-    background: transparent;
+  .article-date {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    white-space: nowrap;
   }
 
   /* About */
-  .about {
-    padding: 80px 0;
-  }
-
-  .about h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 48px;
-    color: #fff;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .card {
-    background: #161616;
-    border: 1px solid #222;
-    border-radius: 16px;
-    padding: 32px 24px;
-    transition: border-color 0.2s ease;
-  }
-
-  .card:hover {
-    border-color: #00E676;
-  }
-
-  .card-icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-
-  .card p {
+  .about-text {
     font-size: 0.9rem;
     color: #888;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
   /* Footer */
   footer {
-    padding: 40px 0;
+    padding: 48px 0;
     text-align: center;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #111;
   }
 
   footer p {
-    font-size: 0.85rem;
-    color: #555;
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.6rem;
+    color: #333;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    font-family: 'Silkscreen', monospace;
+    font-size: 0.6rem;
+    color: #333;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 40px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
   }
 </style>

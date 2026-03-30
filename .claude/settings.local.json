@@ -8,7 +8,8 @@
       "Bash(magick --version)",
       "Bash(node scripts/generate-favicons.mjs)",
       "Bash(npm run:*)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(gh repo:*)"
     ]
   }
 }
