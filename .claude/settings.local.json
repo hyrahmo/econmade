@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(gh auth:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(magick --version)",
+      "Bash(node scripts/generate-favicons.mjs)",
+      "Bash(npm run:*)",
+      "Bash(gh api:*)"
+    ]
+  }
+}

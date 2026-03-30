@@ -1,0 +1,191 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ECONMADE — анимационный канал про экономику и финансы. Топы, рейтинги, объяснения простым языком." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0D0D0D" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Анимационный канал про экономику и финансы" />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0D0D0D;
+    color: #E0E0E0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .logo-mark .icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .hero h1 .accent {
+    color: #00E676;
+  }
+
+  .tagline {
+    font-size: 1.15rem;
+    color: #999;
+    max-width: 480px;
+  }
+
+  .links {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 99px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: #00E676;
+    color: #0D0D0D;
+  }
+
+  .btn:hover {
+    background: #00C853;
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #E0E0E0;
+    border: 1.5px solid #333;
+  }
+
+  .btn-outline:hover {
+    border-color: #00E676;
+    color: #00E676;
+    background: transparent;
+  }
+
+  /* About */
+  .about {
+    padding: 80px 0;
+  }
+
+  .about h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #fff;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: #161616;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 32px 24px;
+    transition: border-color 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: #00E676;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    color: #555;
+  }
+</style>
